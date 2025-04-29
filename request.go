@@ -39,7 +39,10 @@ func detail(ctx context.Context, params *RequestParam) (string, error) {
 	request.Header.Set("Connection", "keep-alive")
 	request.Header.Set("content-type", "application/x-www-form-urlencoded")
 	request.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36")
-	do, _ := client.Do(request)
+	do, err := client.Do(request)
+	if err != nil {
+		return "", err
+	}
 	all, _ := io.ReadAll(do.Body)
 	defer do.Body.Close()
 	wrbs := GetWrbs(all)

@@ -56,7 +56,7 @@ func main() {
 		Country:         "us",
 		SessionDuration: 10,
 	})
-
+	fmt.Println(proxy)
 	if err != nil {
 		panic(err)
 	}
