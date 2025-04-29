@@ -179,7 +179,7 @@ func getVacationRental(q string) HotelDetail {
 		hotelDetail HotelDetail
 	)
 
-	a := gjson.Parse(q).Get("7").Array()[0].Get("441552390") //gps_coordinates todo 可能会改动
+	a := gjson.Parse(q).Get("7").Array()[0].Get("441552390") //gps_coordinates
 	var essentialInfo []string
 	essentialInfoArray := a.Get("6.5.9.0.1").Get("179305178").Get("10.3.1").Array() //essential_info
 	for _, result := range essentialInfoArray {
@@ -243,7 +243,7 @@ func getVacationRental(q string) HotelDetail {
 		var nearbyPlace DetailNearbyPlace
 		name := result.Get("0").String()
 		for _, v := range result.Get("2").Array() {
-			transportationsTypeInt := transportationsType(v.Get("0").Int()) // 0 -->taxi  2 -->Walking  3-->Public transport 这个可能多个
+			transportationsTypeInt := transportationsType(v.Get("0").Int()) // 0 -->taxi  2 -->Walking  3-->Public transport
 			transportationsDuration := v.Get("1").String()                  //
 			nearbyPlace.Transportations = append(nearbyPlace.Transportations, struct {
 				Type     string `json:"type"`
@@ -338,7 +338,7 @@ func getAll(q string) HotelDetail {
 		hotelDetail HotelDetail
 	)
 
-	a := gjson.Parse(q).Get("7").Array()[0].Get("441552390") //gps_coordinates todo 可能会改动
+	a := gjson.Parse(q).Get("7").Array()[0].Get("441552390") //gps_coordinates
 	propertyToken := a.Get("20").String()
 	link := a.Get("2.29.2").String()
 	hotelDetail.PropertyToken = propertyToken
@@ -462,10 +462,6 @@ func getAll(q string) HotelDetail {
 		hotelDetail.FeaturedPrices = append(hotelDetail.FeaturedPrices, getFeaturedPrices(result.String()))
 	}
 	hotelDetail.Type = "hotel"
-	//marshal, _ := json.Marshal(hotelDetail)
-	//create, _ := os.Create("hotelDetail.json")
-	//create.Write(marshal)
-	//create.Close()
 	return hotelDetail
 }
 
@@ -611,7 +607,7 @@ func getNearbyPlaces(s string) DetailNearbyPlace {
 		},
 	}
 	for _, r := range result.Get("2").Array() {
-		transportationsTypeInt := transportationsType(r.Get("0").Int()) // 0 -->taxi  2 -->Walking  3-->Public transport 这个可能多个
+		transportationsTypeInt := transportationsType(r.Get("0").Int()) // 0 -->taxi  2 -->Walking  3-->Public transport
 		transportationsDuration := r.Get("1").String()                  //
 		nearbyPlace.Transportations = append(nearbyPlace.Transportations, struct {
 			Type     string `json:"type"`
