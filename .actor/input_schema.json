@@ -1,0 +1,460 @@
+{
+  "title": "google hotel detail",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "property_token": {
+      "title": "Property Token",
+      "description": "Parameter is used to get property details which consists of name, address, phone, prices, nearby places, and etc.",
+      "type": "string",
+      "default": "ChkQtLKxsIyJrN1dGg0vZy8xMXk4Mnlobjk4EAI"
+    },
+    "q": {
+      "title": "Search Query",
+      "description": "Parameter defines the search query. You can use anything that you would use in a regular Google Hotels search.",
+      "type": "string",
+      "default": "Maple Leaf Guest House"
+    },
+    "check_in_date": {
+      "title": "Check In Date",
+      "description": "Parameter defines the check-in date. The format is **YYYY-MM-DD**. e.g. `2025-03-05`",
+      "type": "string",
+      "format": "date",
+      "default": "next_1d"
+    },
+    "check_out_date": {
+      "title": "Check Out Date",
+      "description": "Parameter defines the check-out date. The format is **YYYY-MM-DD**. e.g. `2025-03-06`",
+      "type": "string",
+      "format": "date",
+      "default": "next_2d"
+    },
+    "adults": {
+      "title": "Number of Adults",
+      "description": "Parameter defines the number of `adults`. Default to `2`.",
+      "type": "string",
+      "default": ""
+    },
+    "children": {
+      "title": "Number of Children",
+      "description": "Parameter defines the number of `children`. Default to `0`.",
+      "type": "string",
+      "default": ""
+    },
+    "children_ages": {
+      "title": "Children's Ages",
+      "description": "Parameter defines the ages of children. The age range is from `1` to `17`, with children who haven't reached 1 year old being considered as `1`.\n\nExample for single child only:\n`5`\n\nExample for multiple children (seperated by comma ,):\n`5,8,10`\n\nThe number of children's ages specified must match the `children`.",
+      "type": "string",
+      "default": ""
+    },
+    "gl": {
+      "title": "Country",
+      "description": "Parameter defines the country to use for the Google search. It's a two-letter country code. (e.g., `us` for the United States, `uk` for United Kingdom, or `fr` for France).",
+      "type": "string",
+      "default": "us"
+    },
+    "hl": {
+      "title": "Language",
+      "description": "Parameter defines the language to use for the Google search. It's a two-letter language code. (e.g., `en` for English, `es` for Spanish, or `fr` for French).",
+      "type": "string",
+      "default": "en-sg"
+    },
+    "currency": {
+      "title": "Currency",
+      "description": "Parameter defines the currency of the returned prices. Default to `USD`.",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "Albanian Lek - ALL",
+          "value": "ALL"
+        },
+        {
+          "label": "Algerian Dinar - DZD",
+          "value": "DZD"
+        },
+        {
+          "label": "Argentine Peso - ARS",
+          "value": "ARS"
+        },
+        {
+          "label": "Armenian Dram - AMD",
+          "value": "AMD"
+        },
+        {
+          "label": "Aruban Florin - AWG",
+          "value": "AWG"
+        },
+        {
+          "label": "Australian Dollar - AUD",
+          "value": "AUD"
+        },
+        {
+          "label": "Azerbaijani Manat - AZN",
+          "value": "AZN"
+        },
+        {
+          "label": "Bahamian Dollar - BSD",
+          "value": "BSD"
+        },
+        {
+          "label": "Bahraini Dinar - BHD",
+          "value": "BHD"
+        },
+        {
+          "label": "Belarusian Ruble - BYN",
+          "value": "BYN"
+        },
+        {
+          "label": "Bermudan Dollar - BMD",
+          "value": "BMD"
+        },
+        {
+          "label": "Bosnia-Herzegovina Convertible Mark - BAM",
+          "value": "BAM"
+        },
+        {
+          "label": "Brazilian Real - BRL",
+          "value": "BRL"
+        },
+        {
+          "label": "British Pound - GBP",
+          "value": "GBP"
+        },
+        {
+          "label": "Bulgarian Lev - BGN",
+          "value": "BGN"
+        },
+        {
+          "label": "CFP Franc - XPF",
+          "value": "XPF"
+        },
+        {
+          "label": "Canadian Dollar - CAD",
+          "value": "CAD"
+        },
+        {
+          "label": "Chilean Peso - CLP",
+          "value": "CLP"
+        },
+        {
+          "label": "Chinese Yuan - CNY",
+          "value": "CNY"
+        },
+        {
+          "label": "Colombian Peso - COP",
+          "value": "COP"
+        },
+        {
+          "label": "Costa Rican Colón - CRC",
+          "value": "CRC"
+        },
+        {
+          "label": "Cuban Peso - CUP",
+          "value": "CUP"
+        },
+        {
+          "label": "Czech Koruna - CZK",
+          "value": "CZK"
+        },
+        {
+          "label": "Danish Krone - DKK",
+          "value": "DKK"
+        },
+        {
+          "label": "Dominican Peso - DOP",
+          "value": "DOP"
+        },
+        {
+          "label": "Egyptian Pound - EGP",
+          "value": "EGP"
+        },
+        {
+          "label": "Euro - EUR",
+          "value": "EUR"
+        },
+        {
+          "label": "Georgian Lari - GEL",
+          "value": "GEL"
+        },
+        {
+          "label": "Hong Kong Dollar - HKD",
+          "value": "HKD"
+        },
+        {
+          "label": "Hungarian Forint - HUF",
+          "value": "HUF"
+        },
+        {
+          "label": "Icelandic Króna - ISK",
+          "value": "ISK"
+        },
+        {
+          "label": "Indian Rupee - INR",
+          "value": "INR"
+        },
+        {
+          "label": "Indonesian Rupiah - IDR",
+          "value": "IDR"
+        },
+        {
+          "label": "Iranian Rial - IRR",
+          "value": "IRR"
+        },
+        {
+          "label": "Israeli New Shekel - ILS",
+          "value": "ILS"
+        },
+        {
+          "label": "Jamaican Dollar - JMD",
+          "value": "JMD"
+        },
+        {
+          "label": "Japanese Yen - JPY",
+          "value": "JPY"
+        },
+        {
+          "label": "Jordanian Dinar - JOD",
+          "value": "JOD"
+        },
+        {
+          "label": "Kazakhstani Tenge - KZT",
+          "value": "KZT"
+        },
+        {
+          "label": "Kuwaiti Dinar - KWD",
+          "value": "KWD"
+        },
+        {
+          "label": "Lebanese Pound - LBP",
+          "value": "LBP"
+        },
+        {
+          "label": "Macedonian Denar - MKD",
+          "value": "MKD"
+        },
+        {
+          "label": "Malaysian Ringgit - MYR",
+          "value": "MYR"
+        },
+        {
+          "label": "Mexican Peso - MXN",
+          "value": "MXN"
+        },
+        {
+          "label": "Moldovan Leu - MDL",
+          "value": "MDL"
+        },
+        {
+          "label": "Moroccan Dirham - MAD",
+          "value": "MAD"
+        },
+        {
+          "label": "New Taiwan Dollar - TWD",
+          "value": "TWD"
+        },
+        {
+          "label": "New Zealand Dollar - NZD",
+          "value": "NZD"
+        },
+        {
+          "label": "Norwegian Krone - NOK",
+          "value": "NOK"
+        },
+        {
+          "label": "Omani Rial - OMR",
+          "value": "OMR"
+        },
+        {
+          "label": "Pakistani Rupee - PKR",
+          "value": "PKR"
+        },
+        {
+          "label": "Panamanian Balboa - PAB",
+          "value": "PAB"
+        },
+        {
+          "label": "Peruvian Sol - PEN",
+          "value": "PEN"
+        },
+        {
+          "label": "Philippine Peso - PHP",
+          "value": "PHP"
+        },
+        {
+          "label": "Polish Zloty - PLN",
+          "value": "PLN"
+        },
+        {
+          "label": "Qatari Riyal - QAR",
+          "value": "QAR"
+        },
+        {
+          "label": "Romanian Leu - RON",
+          "value": "RON"
+        },
+        {
+          "label": "Russian Ruble - RUB",
+          "value": "RUB"
+        },
+        {
+          "label": "Saudi Riyal - SAR",
+          "value": "SAR"
+        },
+        {
+          "label": "Serbian Dinar - RSD",
+          "value": "RSD"
+        },
+        {
+          "label": "Singapore Dollar - SGD",
+          "value": "SGD"
+        },
+        {
+          "label": "South African Rand - ZAR",
+          "value": "ZAR"
+        },
+        {
+          "label": "South Korean Won - KRW",
+          "value": "KRW"
+        },
+        {
+          "label": "Swedish Krona - SEK",
+          "value": "SEK"
+        },
+        {
+          "label": "Swiss Franc - CHF",
+          "value": "CHF"
+        },
+        {
+          "label": "Thai Baht - THB",
+          "value": "THB"
+        },
+        {
+          "label": "Turkish Lira - TRY",
+          "value": "TRY"
+        },
+        {
+          "label": "US Dollar - USD",
+          "value": "USD"
+        },
+        {
+          "label": "Ukrainian Hryvnia - UAH",
+          "value": "UAH"
+        },
+        {
+          "label": "United Arab Emirates Dirham - AED",
+          "value": "AED"
+        },
+        {
+          "label": "Vietnamese Dong - VND",
+          "value": "VND"
+        }
+      ]
+    },
+    "sort_by": {
+      "title": "Sort By",
+      "description": "Parameter is used for sorting the results. Default is sort by `Relevance`.\n\nAvailable options:\n`3` - Lowest price\n`8` - Highest rating\n`13` - Most reviewed",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "Lowest price - 3",
+          "value": "3"
+        },
+        {
+          "label": "Highest rating - 8",
+          "value": "8"
+        },
+        {
+          "label": "Most reviewed - 13",
+          "value": "13"
+        }
+      ]
+    },
+    "min_price": {
+      "title": "Min. Price",
+      "description": "Parameter defines the lower bound of price range.",
+      "type": "string",
+      "default": ""
+    },
+    "max_price": {
+      "title": "Max. Price",
+      "description": "Parameter defines the upper bound of price range.",
+      "type": "string",
+      "default": ""
+    },
+    "property_types": {
+      "title": "Property Types",
+      "description": "Parameter defines to include only certain type of property in the results. Head to the [Google Hotels Property Types page](https://apidocs.scrapeless.com/doc-890580) for a full list of supported Hotels property types. For Vacation Rentals, please refer to the [Google Vacation Rentals Property Types page](https://apidocs.scrapeless.com/doc-890578) for a full list of supported Vacation Rentals property types.\n\nExample for single property type only:\n17\n\nExample for multiple property types (seperated by comma ,):\n17,12,18",
+      "type": "string",
+      "default": ""
+    },
+    "amenities": {
+      "title": "Amenities",
+      "description": "Parameter defines to include only results that offer specified amenities. Head to the [Google Hotels Amenities page](https://apidocs.scrapeless.com/doc-890631) for a full list of supported Hotels amenities. For Vacation Rentals, please refer to the [Google Vacation Rentals Amenities page](https://apidocs.scrapeless.com/doc-890623) for a full list of supported Vacation Rentals amenities.\n\nExample for single amenity only:\n35\n\nExample for multiple amenities (seperated by comma ,):\n35,9,19",
+      "type": "string",
+      "default": ""
+    },
+    "rating": {
+      "title": "Guest Rating",
+      "description": "Parameter is used for filtering the results to certain rating.\n\nAvailable options:\n`7` - 3.5+\n`8` - 4.0+\n`9` - 4.5+",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "3.5+ - 7",
+          "value": "7"
+        },
+        {
+          "label": "4.0+ - 8",
+          "value": "8"
+        },
+        {
+          "label": "4.5+ - 9",
+          "value": "9"
+        }
+      ]
+    },
+    "hotel_class": {
+      "title": "Hotel Class",
+      "description": "Parameter defines to include only certain hotel class in the results.\n\nAvailable options:\n`2` - 2-star\n`3` - 3-star\n`4` - 4-star\n`5` - 5-star\n\nExample for single hotel class only:\n`2`\n\nExample for multiple hotel class (seperated by comma `,`):\n`2,3,4`\n\nThis parameter isn't available for Vacation Rentals.",
+      "type": "string",
+      "default": ""
+    },
+    "free_cancellation": {
+      "title": "Free Cancellation",
+      "description": "Parameter defines to show results that offer free cancellation.\n\nThis parameter isn't available for Vacation Rentals.",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "True",
+          "value": "1"
+        },
+        {
+          "label": "False",
+          "value": "0"
+        }
+      ]
+    },
+    "special_offers": {
+      "title": "Special Offers",
+      "description": "Parameter defines to show results that have special offers.\n\nThis parameter isn't available for Vacation Rentals.",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "True",
+          "value": "1"
+        },
+        {
+          "label": "False",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "required": ["property_token",
+    "check_in_date",
+    "check_out_date"]
+}
