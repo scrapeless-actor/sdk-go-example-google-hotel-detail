@@ -2,7 +2,7 @@ module sdk-go-example-google-hotel-detail
 
 go 1.24.1
 
-require github.com/scrapeless-ai/scrapeless-actor-sdk-go v0.0.6
+require github.com/scrapeless-ai/scrapeless-actor-sdk-go v0.0.9
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
