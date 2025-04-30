@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/scrapeless-ai/scrapeless-actor-sdk-go/env"
 	"log"
 	"net/http"
 	"net/url"
@@ -35,9 +34,9 @@ type RequestParam struct {
 	Rating           string `json:"rating"`
 	Brands           string `json:"brands"`
 	HotelClass       string `json:"hotel_class"`
-	FreeCancellation int    `json:"free_cancellation"` // 传入1生效
-	SpecialOffers    int    `json:"special_offers"`    // 传入1生效
-	EcoCertified     int    `json:"eco_certified"`     // 传入1生效
+	FreeCancellation int    `json:"free_cancellation"`
+	SpecialOffers    int    `json:"special_offers"`
+	EcoCertified     int    `json:"eco_certified"`
 	VacationRentals  int    `json:"vacation_rentals"`
 	Bedrooms         int    `json:"bedrooms"`
 	Bathrooms        int    `json:"bathrooms"`
@@ -63,9 +62,9 @@ type RequestParamGateway struct {
 
 	Adults           any `json:"adults"`
 	Children         any `json:"children"`
-	FreeCancellation any `json:"free_cancellation"` // 传入1生效
-	SpecialOffers    any `json:"special_offers"`    // 传入1生效
-	EcoCertified     any `json:"eco_certified"`     // 传入1生效
+	FreeCancellation any `json:"free_cancellation"`
+	SpecialOffers    any `json:"special_offers"`
+	EcoCertified     any `json:"eco_certified"`
 	VacationRentals  any `json:"vacation_rentals"`
 	Bedrooms         any `json:"bedrooms"`
 	Bathrooms        any `json:"bathrooms"`
@@ -125,12 +124,10 @@ func main() {
 	}
 	requestParam := param.RequestParamGateway2RequestParam()
 	// get proxy url
-	env.Env.ApiKey = "sk_3g328Xc7kTlbHQIIV72e0bZlC1CXGOPJJkGFuNOx67GgORS901nXGLCllCoAxHkI"
 	proxy, err := actor.Proxy.Proxy(context.TODO(), proxyModel.ProxyActor{
 		Country:         "us",
 		SessionDuration: 10,
 	})
-	fmt.Println(proxy)
 	if err != nil {
 		panic(err)
 	}
@@ -142,7 +139,12 @@ func main() {
 	client = &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(parse)}}
 	data, err := detail(context.Background(), requestParam)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-	fmt.Println(data)
+	log.Println(data)
+	ok, err := actor.Storage.GetKv().SetValue(context.Background(), "hotel-detail", data, 0)
+	if err != nil {
+		panic(err)
+	}
+	log.Println(ok)
 }
