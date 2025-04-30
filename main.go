@@ -57,6 +57,7 @@ func main() {
 		SessionDuration: 10,
 	})
 	fmt.Println(proxy)
+	proxy = "http://CHANNEL-proxy.residential-country_us-r_10m-s_TOWD0FpZBj--scrapelesstaskid_22b8f687-2ac1-424b-9e12-63a3c6dd44f2:sk_3g328Xc7kTlbHQIIV72e0bZlC1CXGOPJJkGFuNOx67GgORS901nXGLCllCoAxHkI@gw-us.scrapeless.io:8789"
 	if err != nil {
 		panic(err)
 	}

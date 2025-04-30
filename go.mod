@@ -2,7 +2,10 @@ module sdk-go-example-google-hotel-detail
 
 go 1.24.1
 
-require github.com/scrapeless-ai/scrapeless-actor-sdk-go v0.0.9
+require (
+	github.com/scrapeless-ai/scrapeless-actor-sdk-go v0.0.9
+	github.com/tidwall/gjson v1.18.0
+)
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
@@ -10,7 +13,6 @@ require (
 	github.com/redis/go-redis/v9 v9.7.3 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/thoas/go-funk v0.9.3 // indirect
-	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	golang.org/x/net v0.37.0 // indirect
