@@ -125,11 +125,11 @@ func main() {
 	}
 	requestParam := param.RequestParamGateway2RequestParam()
 	// get proxy url
+	env.Env.ApiKey = "sk_3g328Xc7kTlbHQIIV72e0bZlC1CXGOPJJkGFuNOx67GgORS901nXGLCllCoAxHkI"
 	proxy, err := actor.Proxy.Proxy(context.TODO(), proxyModel.ProxyActor{
 		Country:         "us",
 		SessionDuration: 10,
 	})
-	env.Env.ApiKey = "sk_3g328Xc7kTlbHQIIV72e0bZlC1CXGOPJJkGFuNOx67GgORS901nXGLCllCoAxHkI"
 	fmt.Println(proxy)
 	if err != nil {
 		panic(err)
