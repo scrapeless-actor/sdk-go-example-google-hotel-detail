@@ -45,6 +45,7 @@ func detail(ctx context.Context, params *RequestParam) (string, error) {
 	}
 	all, _ := io.ReadAll(do.Body)
 	defer do.Body.Close()
+	fmt.Println(string(all))
 	wrbs := GetWrbs(all)
 	result := gjson.Parse(string(wrbs[0]))
 	data := gjson.Parse(result.Get("0.2").Array()[0].String()) //.Get("1")

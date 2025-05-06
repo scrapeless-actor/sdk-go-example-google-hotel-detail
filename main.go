@@ -131,10 +131,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	//proxy = "http://group_scraper_google_trneds:c8d2279d492a@pm-gw-us.scrapeless.io:24125"
 	parse, err := url.Parse(proxy)
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println(parse.String())
 	// init client with proxy
 	client = &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(parse)}}
 	data, err := detail(context.Background(), requestParam)
